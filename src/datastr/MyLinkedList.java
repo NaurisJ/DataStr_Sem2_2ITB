@@ -39,7 +39,19 @@ public class MyLinkedList<Ttype> {
 		}
 		
 		if(!isFull()) {
-			// pievienos elementu
+			if(isEmpty()) { // tiks pirmais mezgls pieveinots, jo ir tukss saraksts
+				MyNode newNode = new MyNode<Ttype>(element);
+				lastNode = newNode;
+				firstNode = newNode;
+				counter++;
+				
+			} else {
+				MyNode newNode = new MyNode<Ttype>(element);
+				newNode.setPrevious(lastNode);
+				lastNode.setNext(newNode);
+				lastNode = newNode;
+				counter++;
+			}
 		}
 	}
 
