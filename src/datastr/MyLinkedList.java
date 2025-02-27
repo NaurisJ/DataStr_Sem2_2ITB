@@ -55,7 +55,7 @@ public class MyLinkedList<Ttype> {
 		}
 	}
 	
-	
+
 	public void add(Ttype element, int position) throws Exception{
 		if (element == null) {
 			throw new NullPointerException("Nevar izpildit so funkciju!");
@@ -96,14 +96,43 @@ public class MyLinkedList<Ttype> {
 			throw new Exception("Šada pozīcija neder!");
 		}
 		
-	
 
 		
 		
-		
-		
 	}
-	
+		public void remove(int position) throws Exception{
+		if (isEmpty()) {
+			throw new Exception("List is empty and itis not possible to remove an element");
+		}
+		if (position <= 0 || position > counter) {
+			throw new Exception("");
+		}
+		
+		if (position == 1) {
+			firstNode = firstNode.getNext();
+			firstNode.setPrevious(null);
+			System.gc();
+			counter--;
+		} else if (position == counter) {
+			lastNode = lastNode.getPrevious();
+			lastNode.setNext(null);
+			System.gc();
+			counter--;
+		} else {
+			MyNode currentNode = firstNode;
+			for (int i = 0; i < position - i; i++ ) {
+				currentNode = currentNode.getNext();
+			}
+			
+			MyNode currentNodeNext = currentNode.getNext();
+			MyNode currentNodePrevious = currentNode.getPrevious();
+			currentNodeNext.setPrevious(currentNodePrevious);
+			currentNodePrevious.setNext(currentNodeNext);
+			currentNode = null;
+			System.gc();
+			counter--;
+		}
+	}
 	public void print() throws Exception{
 		if(isEmpty()) {
 			throw new Exception("List is empty and it is not possible to print");

@@ -19,6 +19,12 @@ public class MainService {
 			linkedListForInt.add(2000,6); // -222 45 100 -200 1000 2000
 			linkedListForInt.add(55,4);
 			linkedListForInt.print();
+			
+			
+			linkedListForInt.remove(1); // -222 izdzesies
+			linkedListForInt.print(); // 45 100 55 -200 1000 2000
+			linkedListForInt.remove(6); // 2000 pazud
+			linkedListForInt.print(); // 45 100 55 -200 1000
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
