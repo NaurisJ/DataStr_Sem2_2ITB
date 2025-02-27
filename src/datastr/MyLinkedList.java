@@ -1,6 +1,6 @@
 package datastr;
 
-public class MyLinkedList {
+public class MyLinkedList<Ttype> {
 	private MyNode firstNode = null;
 	private MyNode lastNode = null;
 	private int counter = 0;
@@ -30,6 +30,16 @@ public class MyLinkedList {
 			return false; // ja tas izdodas tad saraksts nav pilns
 		} catch(OutOfMemoryError e) {
 			return true; // bet ja mezglu nevar vairs RAM atmina ielikt, tad saraksts ir pilns
+		}
+	}
+	
+	public void add (Ttype element) throws NullPointerException{
+		if (element == null) {
+			throw new NullPointerException("Elementa vertiba nevar but null");
+		}
+		
+		if(!isFull()) {
+			// pievienos elementu
 		}
 	}
 
