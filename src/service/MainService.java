@@ -13,6 +13,11 @@ public class MainService {
 		linkedListForInt.add(1000); // 45 100 -200 1000
 		
 		try {
+			linkedListForInt.print(); // 45 100 -200 1000
+			linkedListForInt.add(-222,1); // 45 -220 100 -200 1000
+			linkedListForInt.print();
+			linkedListForInt.add(2000,6); // -222 45 100 -200 1000 2000
+			linkedListForInt.add(55,4);
 			linkedListForInt.print();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

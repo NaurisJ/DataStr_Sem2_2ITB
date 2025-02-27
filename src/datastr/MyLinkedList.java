@@ -55,6 +55,55 @@ public class MyLinkedList<Ttype> {
 		}
 	}
 	
+	
+	public void add(Ttype element, int position) throws Exception{
+		if (element == null) {
+			throw new NullPointerException("Nevar izpildit so funkciju!");
+		}
+		
+		
+		if (position == 1 ) { // grib ielikt 1. elementu
+			MyNode newNode = new MyNode(element);
+			newNode.setNext(firstNode);
+			firstNode.setPrevious(newNode);
+			firstNode = newNode;
+			counter++;
+			
+		} else if (position == counter + 1) {
+			add(element);
+			
+		} else if (position > 1 && position <= counter) {
+			
+			MyNode currentNode = firstNode;
+			
+			for (int i = 0; i < position - 1; i++) {
+				
+				currentNode = currentNode.getNext();
+			}
+			
+			MyNode currentNodePrevious = currentNode.getPrevious();
+			
+			MyNode newNode = new MyNode(element);
+			
+			newNode.setNext(currentNode);
+			currentNode.setPrevious(newNode);
+			
+			currentNodePrevious.setNext(newNode);
+			newNode.setPrevious(currentNodePrevious);
+			
+			counter++;
+		} else {
+			throw new Exception("Šada pozīcija neder!");
+		}
+		
+	
+
+		
+		
+		
+		
+	}
+	
 	public void print() throws Exception{
 		if(isEmpty()) {
 			throw new Exception("List is empty and it is not possible to print");
@@ -62,10 +111,11 @@ public class MyLinkedList<Ttype> {
 		
 		MyNode currentNode = firstNode;
 		
-		while (currentNode.getNext() != null) {
+		while (currentNode != null) {
 			System.out.print(currentNode.getElement() + " ");
 			currentNode = currentNode.getNext();
 		}
+		System.out.println();
 	}
 
 }
