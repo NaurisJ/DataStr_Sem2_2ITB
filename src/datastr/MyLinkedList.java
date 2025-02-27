@@ -54,5 +54,18 @@ public class MyLinkedList<Ttype> {
 			}
 		}
 	}
+	
+	public void print() throws Exception{
+		if(isEmpty()) {
+			throw new Exception("List is empty and it is not possible to print");
+		}
+		
+		MyNode currentNode = firstNode;
+		
+		while (currentNode.getNext() != null) {
+			System.out.print(currentNode.getElement() + " ");
+			currentNode = currentNode.getNext();
+		}
+	}
 
 }
